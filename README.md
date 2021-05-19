@@ -29,9 +29,38 @@ Wykorzystana zostanie płytka ewaluacyjna **Nucleo F103RB** oraz **"Bluepill"**
 - [@Dako99](https://github.com/Dako99)
 
 
-  
+
 ## Aktuane funkcje:
 
 - work in progress
 
   
+## Opis branchy
+
+#### Nokia screen branch
+
+
+| Name      | Owner     | Description              |
+| :-------- | :------- | :------------------------- |
+| `screen_dev` | `PanPeople` |Base code for Nokia 5110 screen |
+
+#### Bar02 sensor branch
+
+
+| Name      | Owner     | Description              |
+| :-------- | :------- | :------------------------- |
+| `bar_dev` | `Dako99` | Base code for Bar02 sensor |
+
+
+## Wykorzystane piny:
+
+<img src="assets/image-20210519102614383.png" alt="image-20210519102614383" style="zoom:80%;" /> 
+
+### Opis poszczególnych wyprowadzeń:
+
+| GPIO pin: | Function: | Additional<br />info: |
+| --------- | --------- | --------------------- |
+| PA1       | none      | none                  |
+|           |           |                       |
+|           |           |                       |
+
