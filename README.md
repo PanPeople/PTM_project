@@ -1,16 +1,34 @@
 
 # Projekt PTM
 
+## Pomysł:
+
+Jesteśmy członkami koła pracującymi przy projekcie naukowo-badawczym PWr Diving Crew.
+
+Zajmujemy się budową robota podwodnego klasy AUV – BlueNemo
+
+Aktualnie przygotowując się pod międzynarodowe zawody pracujemy nad nowym pojazdem, dla którego wspólnie przygotowujemy obsługę poniższych czujników:
+
+* AHRS (moduł IMU wraz z  wewnętrznym przetwarzaniem i filtracją)
+* ciśnienia Bar02, który min. pozwala na estymację głębokości 
+
+Wykorzystamy również ekran LCD jako panel kontrolny/odczytowy (docelowo mógłby być to ekran OLED), który będzie się znajdował we wnętrzu robota.
+
+
+
+____
+
 Projekt skupiać się będzie na obsłudze następujących elementów:
+
 * ekran **Nokia 5110** (84x48 px)
     * protokół komunikacji: **SPI**
-    * biblioteka będzie napsiana od zera przy pomocy informacji z noty katalogowej
+    * biblioteka będzie napisana od zera przy pomocy informacji z noty katalogowej
     * [strona produktu](https://botland.com.pl/wyswietlacze-alfanumeryczne-i-graficzne/2650-wyswietlacz-lcd-graficzny-84x48px-nokia-5110-niebieski.html)
 
-* czunnik **Bar02**:
+* czujnik **Bar02**:
     * [strona produktu](https://bluerobotics.com/store/sensors-sonars-cameras/sensors/bar02-sensor-r1-rp/?fbclid=IwAR1OrarpIVQRmMD04arDhxaLX52zNftKDEgKdB-qMfzaiU9inliZ1wjkOcQ)
     * [Datasheet](https://www.te.com/commerce/DocumentDelivery/DDEController?Action=srchrtrv&DocNm=MS5837-02BA01&DocType=Data+Sheet&DocLang=English&DocFormat=pdf&PartCntxt=CAT-BLPS0059)
-    * jest to czunik rezystancyjny (wykorzystanie ADC)
+    * jest to czujnik rezystancyjny (wykorzystanie ADC)
 
 
 
@@ -30,7 +48,7 @@ Wykorzystana zostanie płytka ewaluacyjna **Nucleo F103RB** oraz **"Bluepill"**
 
 
 
-## Aktuane funkcje:
+## Aktualne funkcje:
 
 - work in progress
 
@@ -56,11 +74,13 @@ Wykorzystana zostanie płytka ewaluacyjna **Nucleo F103RB** oraz **"Bluepill"**
 
 <img src="assets/image-20210519102614383.png" alt="image-20210519102614383" style="zoom:80%;" /> 
 
+F103C8TX
+
 ### Opis poszczególnych wyprowadzeń:
 
-| GPIO pin: | Function: | Additional<br />info: |
-| --------- | --------- | --------------------- |
-| PA1       | none      | none                  |
-|           |           |                       |
-|           |           |                       |
+| Function: | GPIO pin: | Additional info: |
+| :-------: | :-------: | :--------------: |
+|    CS     |    PA6    | CS line for SPI  |
+|    RST    |    PB0    |                  |
+|    DC     |    PB1    |                  |
 
