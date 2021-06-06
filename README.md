@@ -80,7 +80,7 @@ F103C8TX
 
 | Function: | GPIO pin: | Additional info: |
 | :-------: | :-------: | :--------------: |
-|    CS     |    PA6    | CS line for SPI  |
-|    RST    |    PB0    |                  |
-|    DC     |    PB1    |                  |
+|    CS     |  PA6 A0   | CS line for SPI  |
+|    RST    |  PB0 A1   |                  |
+|    DC     |  PB1 A4   |                  |
 
