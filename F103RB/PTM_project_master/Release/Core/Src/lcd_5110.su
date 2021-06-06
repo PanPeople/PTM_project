@@ -1,0 +1,8 @@
+lcd_5110.c:35:6:LCD_Command	24	static
+lcd_5110.c:12:6:LCD_Initialize	16	static
+lcd_5110.c:45:6:LCD_Data	16	static
+lcd_5110.c:52:6:LCD_Data_Byte	16	static
+lcd_5110.c:60:6:LCD_Clear	24	static
+lcd_5110.c:67:6:LCD_Fill	24	static
+lcd_5110.c:77:6:LCD_draw_pixel	0	static
+lcd_5110.c:111:6:LCD_Clear_Buffer	0	static
