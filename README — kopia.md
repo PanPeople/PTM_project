@@ -35,7 +35,7 @@ Projekt skupiać się będzie na obsłudze następujących elementów:
 
 ## Hardware
 
-Wykorzystana zostanie płytka ewaluacyjna **Nucleo F103RB** jako narzędzie do testowego oprogramowania i debugowania. Docelowo kod zostanie przeportowany na  **"Bluepill"**
+Wykorzystana zostanie płytka ewaluacyjna **Nucleo F103RB** oraz **"Bluepill"**
 
 ## Software
 
@@ -50,21 +50,8 @@ Wykorzystana zostanie płytka ewaluacyjna **Nucleo F103RB** jako narzędzie do t
 
 ## Aktualne funkcje:
 
-- biblioteka LCD:
+- work in progress
 
-  - odświeżanie bufora
-  - rysowanie pixela
-  - generowanie napisów
-  - wczytywanie 
-## Problems and workarounds:
-- programowanie nieoryginalnego **Bluepilla**
-
-  > Wykorzystano oprogramowanie `STM32 ST-LINK Utility`
-  >
-  > 
-## Przyszłe pomysły:
-- odczyt przekonwertowanych bitmap z karty SD w celu otworzenia filmu.
-  
   
 ## Opis branchy
 
@@ -73,21 +60,21 @@ Wykorzystana zostanie płytka ewaluacyjna **Nucleo F103RB** jako narzędzie do t
 
 | Name      | Owner     | Description              |
 | :-------- | :------- | :------------------------- |
-| `lcd_PanPeople` | `PanPeople` |Base code for Nokia 5110 screen |
+| `screen_dev` | `PanPeople` |Base code for Nokia 5110 screen |
 
 #### Bar02 sensor branch
 
 
 | Name      | Owner     | Description              |
 | :-------- | :------- | :------------------------- |
-| `bar_Dako99` | `Dako99` | Base code for Bar02 sensor |
+| `bar_dev` | `Dako99` | Base code for Bar02 sensor |
 
 
 ## Wykorzystane piny:
 
 <img src="assets/image-20210519102614383.png" alt="image-20210519102614383" style="zoom:80%;" /> 
 
-**Wkleić zdjecie STM32F103C8TX**
+F103C8TX
 
 ### Opis poszczególnych wyprowadzeń:
 
