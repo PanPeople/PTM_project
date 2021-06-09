@@ -86,12 +86,35 @@ Wykorzystana zostanie płytka ewaluacyjna **Nucleo F103RB** jako narzędzie do t
 | :-------- | :------- | :------------------------- |
 | `lcd_PanPeople` | `PanPeople` |Base code for Nokia 5110 screen |
 
+
+
+```C
+c =0;
+for(dupa =0 ; dupa<=3, dupa++){
+    c++;
+}
+```
+
+
+
+
+
 #### Bar02 sensor branch
 
 
 | Name      | Owner     | Description              |
 | :-------- | :------- | :------------------------- |
 | `bar_Dako99` | `Dako99` | Base code for Bar02 sensor |
+
+
+
+```C
+c =0;
+for(dupa =0 ; dupa<=3, dupa++){
+    c++;
+}
+```
+
 
 
 ## Wykorzystane piny:
