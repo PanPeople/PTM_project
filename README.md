@@ -55,13 +55,24 @@ Wykorzystana zostanie płytka ewaluacyjna **Nucleo F103RB** jako narzędzie do t
   - odświeżanie bufora
   - rysowanie pixela
   - generowanie napisów
-  - wczytywanie 
-## Problems and workarounds:
-- programowanie nieoryginalnego **Bluepilla**
+  - wczytywanie tablic z zapełnionym buforem
+  - rysowanie bitmap
+  
+- biblioteka BAR02:
 
+  - dupa
+  - robi kawę
+  - śmierdzi bo z rąk Damiana <3
+## Problems and workarounds:
+- programowanie nieoryginalnego **Bluepilla**:
+
+  > [przydatne linki](https://os.mbed.com/users/hudakz/code/STM32F103C8T6_Hello/)
+  >
   > Wykorzystano oprogramowanie `STM32 ST-LINK Utility`
   >
-  > 
+  > <img src="assets/image-20210610010410806.png" alt="image-20210610010410806" style="zoom: 50%;" /> 
+  >
+  > <img src="assets/image-20210610010740086.png" alt="image-20210610010740086" style="zoom:50%;" /> 
 ## Przyszłe pomysły:
 - odczyt przekonwertowanych bitmap z karty SD w celu otworzenia filmu.
   
@@ -85,15 +96,28 @@ Wykorzystana zostanie płytka ewaluacyjna **Nucleo F103RB** jako narzędzie do t
 
 ## Wykorzystane piny:
 
-<img src="assets/image-20210519102614383.png" alt="image-20210519102614383" style="zoom:80%;" /> 
+<img src="assets/image-20210519102614383.png" alt="image-20210519102614383" style="zoom:80%;" />  
 
-**Wkleić zdjecie STM32F103C8TX**
+**Wkleić zdjecie STM32F103C8TX** 
+
+<img src="assets/stm32f103c8t6_pinout_voltage01.png" alt="img" style="zoom: 50%;" /> 
 
 ### Opis poszczególnych wyprowadzeń:
 
-| Function: | GPIO pin: | Additional info: |
-| :-------: | :-------: | :--------------: |
-|    CS     |  PA6 A0   | CS line for SPI  |
-|    RST    |  PB0 A1   |                  |
-|    DC     |  PB1 A4   |                  |
+| Function: | GPIO pin: |          Additional info:          |
+| :-------: | :-------: | :--------------------------------: |
+|    CS     |  PA6 A0   |          CS line for SPI           |
+|    RST    |  PB0 A1   |                                    |
+|    DC     |  PB1 A4   |                                    |
+| SPI1 MOSI |    PB5    |                                    |
+| SPI1 MISO |    PB4    |                                    |
+| GreenLed  |   PC13    | led for debuging/status indicating |
+| I2C2 SCL  |   PB_10   |                                    |
+| I2C2 SDA  |   PB_11   |                                    |
+| UART1_TX  |   PA_9    |       uart for comunnication       |
+| UART1_RX  |   PA_10   |                                    |
+|           |           |                                    |
 
+## Lorem Ipsum
+
+Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Praesent hendrerit, tellus sed condimentum pharetra, justo ipsum interdum felis, at laoreet erat lorem sed nibh. Aenean sodales odio at blandit ultricies. Nullam et suscipit mauris. Morbi et diam felis. Curabitur nec ante id neque imperdiet semper. Donec hendrerit, libero ut fringilla ultrices, est nibh imperdiet arcu, id hendrerit neque felis euismod tellus. Nam faucibus erat id ultrices tempor. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Integer ut cursus est, vel pharetra dolor. Cras sit amet dapibus nunc. Morbi bibendum maximus justo, vitae consequat nibh ultricies nec. Etiam luctus, arcu cursus feugiat viverra, enim mauris ornare orci, et efficitur lacus sem eu lorem. Fusce risus eros, cursus sed arcu ut, tempor tincidunt nunc.
