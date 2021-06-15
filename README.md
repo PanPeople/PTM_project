@@ -62,9 +62,7 @@ Ultimately the code will be ported to **"Bluepill "**.
   - drawing of bitmaps
 - BAR02 library:
 
-  - ass
-  - makes coffee
-  - stinks because of Damian's hands? <3
+  - blank text
 ## Problems and workarounds:
 - flashing of fake **Bluepill**:
 
@@ -76,9 +74,9 @@ Ultimately the code will be ported to **"Bluepill "**.
   >
   > <img src="assets/image-20210610010740086.png" alt="image-20210610010740086" style="zoom:50%;" /> 
   
-- jak chińczyk zjebał pcb:
+- problems with LCD
 
-  > Dako69 historia prawdziwa
+  > blank text
 ## Future ideas:
 
 - Reading converted bitmaps from SD (with another SPI interface) card to open movie.
