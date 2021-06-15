@@ -137,11 +137,11 @@ All required library files are in ` lcd_5110_library `folder.
 >
 > ```c
 > const uint8_t font_ASCII[][5] = {
->   {0x00, 0x00, 0x00, 0x00, 0x00} // 20
->  ,{0x00, 0x00, 0x5f, 0x00, 0x00} // 21 !
->  ,{0x00, 0x07, 0x00, 0x07, 0x00} // 22 "
->  ,{0x14, 0x7f, 0x14, 0x7f, 0x14} // 23 #
->  ,{0x24, 0x2a, 0x7f, 0x2a, 0x12} // 24 $
+> {0x00, 0x00, 0x00, 0x00, 0x00} // 20
+> ,{0x00, 0x00, 0x5f, 0x00, 0x00} // 21 !
+> ,{0x00, 0x07, 0x00, 0x07, 0x00} // 22 "
+> ,{0x14, 0x7f, 0x14, 0x7f, 0x14} // 23 #
+> ,{0x24, 0x2a, 0x7f, 0x2a, 0x12} // 24 $
 > //... more data in code ...
 > };
 > ```
@@ -237,6 +237,49 @@ All required library files are in ` lcd_5110_library `folder.
 > ```C
 > void LCD_Fill(SPI_HandleTypeDef *spi)
 > ```
+> > ____
+>
+> Filling up buffer with shifting bit magic
+>
+> parameters:
+>
+> > `uint8_t buffer[]` - buffer of hexadecimal pixel data
+> >
+> > `uint8_t x` - horizontal position of pixel
+> >
+> > `uint8_t y` - vertical position of pixel
+>
+> ```C
+> void LCD_draw_pixel(uint8_t buffer[],uint8_t x, uint8_t y);
+> ```
+> > ____
+>
+> Just clearing the buffer data
+>
+> parameters:
+>
+> > `uint8_t buffer[]` - buffer of hexadecimal pixel data
+>
+> ```C
+> void LCD_Clear_Buffer(uint8_t buffer[]);
+> ```
+> > ____
+>
+> Putting text character into buffer array:
+>
+> parameters:
+>
+> > `int row` - row of the text
+> >
+> > `int col` - column of the text
+> >
+> > `const char* text` - just your text
+> >
+> > `uint8_t buffer[]` - 
+>
+> ```C
+> void lcd_draw_text(int row, int col, const char* text,uint8_t buffer[]);
+> ```
 
 
 #### Bar02 sensor branch
@@ -278,8 +321,8 @@ All required library files are in ` lcd_5110_library `folder.
 |  SPI1 MOSI  |    PB5    |                  -                  |
 |  SPI1 MISO  |    PB4    |                  -                  |
 | GPIO_Output |   PC13    | led for debugging/status indicating |
-|  I2C2 SCL   |   PB_10   |                                     |
-|  I2C2 SDA   |   PB_11   |                                     |
+|  I2C2 SCL   |   PB_6    |                                     |
+|  I2C2 SDA   |   PB_7    |                                     |
 |  UART1_TX   |   PA_9    |                  -                  |
 |  UART1_RX   |   PA_10   |                  -                  |
 |             |           |                                     |
@@ -296,7 +339,35 @@ For more info, just ask a question via email or Github.
 
 ## Example usage:
 
-jeszcze bedzie 
+1. declare `uint8_t buffer[LCD_X*LCD_Y/8]`
+
+2. use some kind of `uint8_t flag [3] = {0,0}` with interrupt to:
+
+   1. `flag[0]` - for timer update event
+   2. `flag[1]` -  buffer is ready to push/send
+
+3.  make some awesome/random stuff with `buffer[]` and `LCD_draw_pixel()`
+
+4. send `buffer[]` with `LCD_Data()`
+
+   
+
+## Our usage
+
+### lcd_PanPeople
+
+[main.c](https://github.com/PanPeople/PTM_project/blob/lcd_PanPeople/F103C8TX/PTM_project/Core/Src/main.c)
+
+what was used:
+
+* two flags
+* timer update 
+
+
+
+### bar_Dako99
+
+dupa, dawaj tu coś ale to już <3 
 
 ## Licence
 
