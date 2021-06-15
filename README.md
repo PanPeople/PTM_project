@@ -47,8 +47,8 @@ Ultimately the code will be ported to **"Bluepill "**.
 * IDE: **Cube IDE**
 ## Authors/developers:
 
-- [@PanPeople](https://github.com/PanPeople)
-- [@Dako99](https://github.com/Dako99)
+- [@PanPeople](https://github.com/PanPeople) (Mikołaj Czerniak)
+- [@Dako99](https://github.com/Dako99) (Damian Kociołek)
 
 
 
@@ -62,9 +62,7 @@ Ultimately the code will be ported to **"Bluepill "**.
   - drawing of bitmaps
 - BAR02 library:
 
-  - ass
-  - makes coffee
-  - stinks because of Damian's hands? <3
+  - blank text
 ## Problems and workarounds:
 - flashing of fake **Bluepill**:
 
@@ -76,9 +74,9 @@ Ultimately the code will be ported to **"Bluepill "**.
   >
   > <img src="assets/image-20210610010740086.png" alt="image-20210610010740086" style="zoom:50%;" /> 
   
-- jak chińczyk zjebał pcb:
+- problems with LCD
 
-  > Dako69 historia prawdziwa
+  > blank text
 ## Future ideas:
 
 - Reading converted bitmaps from SD (with another SPI interface) card to open movie.
@@ -290,16 +288,16 @@ All required library files are in ` lcd_5110_library `folder.
 | `bar_Dako99` | `Dako99` | Base code for communication with Bar02 sensor |
 
 
-
-
-
-**Dako69 tutaj dawaj opis jak ja!!!!!!**
-
-
-
-
-
-
+> Simple description of function
+>
+> parameters:
+>
+> > `uint8_t i` - some variable
+>
+> ```C
+> void some_function(uint8_t i);
+> ```
+> > ____
 
 
 
@@ -339,6 +337,8 @@ For more info, just ask a question via email or Github.
 
 ## Example usage:
 
+### `lcd_PanPeoople`
+
 1. declare `uint8_t buffer[LCD_X*LCD_Y/8]`
 
 2. use some kind of `uint8_t flag [3] = {0,0}` with interrupt to:
@@ -346,15 +346,21 @@ For more info, just ask a question via email or Github.
    1. `flag[0]` - for timer update event
    2. `flag[1]` -  buffer is ready to push/send
 
-3.  make some awesome/random stuff with `buffer[]` and `LCD_draw_pixel()`
+3. make some awesome/random stuff with `buffer[]` and `LCD_draw_pixel()`
 
 4. send `buffer[]` with `LCD_Data()`
 
    
 
+### `bar_Dako99`
+
+1. blank text
+
+
+
 ## Our usage
 
-### lcd_PanPeople
+### `lcd_PanPeople`
 
 [main.c](https://github.com/PanPeople/PTM_project/blob/lcd_PanPeople/F103C8TX/PTM_project/Core/Src/main.c)
 
@@ -365,9 +371,9 @@ what was used:
 
 
 
-### bar_Dako99
+###  `bar_Dako99`
 
-dupa, dawaj tu coś ale to już <3 
+blank text
 
 ## Licence
 
