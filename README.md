@@ -301,12 +301,12 @@ jeszcze bedzie
 ## Licence
 
 ```
- * ----------------------------------------------------------------------------
+ * -----------------------------------------------------------------------------------------------
  * "THE BEER-WARE LICENSE" (Revision 42):
  * Mikołaj Czerniak and Damian Kociołek wrote this files. As long as you retain this notice you
  * can do whatever you want with this stuff. If we meet some day, and you think
  * this stuff is worth it, you can buy us a beer in return Mikołaj Czerniak and Damian Kociołek
- * ----------------------------------------------------------------------------
+ * -----------------------------------------------------------------------------------------------
 ```
 
 ## Lorem Ipsum
