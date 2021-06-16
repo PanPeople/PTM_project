@@ -8,12 +8,12 @@
 
 We are the members of the scientific association working on the [PWr Diving Crew](http://robocik.pwr.edu.pl/) research project.
 
-We are involved in building an AUV class underwater robot - BlueNemo
+We are involved in building an AUV class underwater robot - BlueNemo.
 
 Currently, preparing for international competitions, we are working on a new vehicle, for which we are preparing support for the following sensors:
 
-* AHRS (IMU module with internal processing and filtration)
-* Bar02 pressure, which among others allows for depth estimation. 
+* AHRS (IMU module with internal processing and filtration),
+* Bar02 diigtal pressure and temperature sensor, which among others allows for depth estimation.
 
 We will also use LCD screen as a control/reading panel (eventually it could be OLED screen), which will be located inside the robot.
 
@@ -22,15 +22,35 @@ ____
 The project will focus on supporting the following things:
 
 * screen **Nokia 5110** (84x48 px).
-  * communication protocol: **SPI**.
-  * the library will be written from scratch using information from the catalog note
-  * [product page](https://botland.com.pl/wyswietlacze-alfanumeryczne-i-graficzne/2650-wyswietlacz-lcd-graficzny-84x48px-nokia-5110-niebieski.html)
-  * [documentation](https://botland.com.pl/index.php?controller=attachment&id_attachment=552) 
+  * communication protocol: **SPI**,
+  
+  * the library was written from scratch using information from the catalog note,
+  
+  * [product page](https://botland.com.pl/wyswietlacze-alfanumeryczne-i-graficzne/2650-wyswietlacz-lcd-graficzny-84x48px-nokia-5110-niebieski.html),
+  
+  * [documentation](https://botland.com.pl/index.php?controller=attachment&id_attachment=552),
+  
+    
   
 * sensor **Bar02**:
-  * [product page](https://bluerobotics.com/store/sensors-sonars-cameras/sensors/bar02-sensor-r1-rp/?fbclid=IwAR1OrarpIVQRmMD04arDhxaLX52zNftKDEgKdB-qMfzaiU9inliZ1wjkOcQ)
-  * [Datasheet](https://www.te.com/commerce/DocumentDelivery/DDEController?Action=srchrtrv&DocNm=MS5837-02BA01&DocType=Data+Sheet&DocLang=English&DocFormat=pdf&PartCntxt=CAT-BLPS0059)
-  * it is a resistive sensor (ADC usage)
+  
+  * it is high quality MEMS based sensor with integrated 24-bit ΔΣ ADC ,
+  
+  * operating range: 300 to 1,200 mbar, -20 to +85 °C,
+  
+  * communication protocol: **I2C** (0x76),
+  
+  * [product page](https://bluerobotics.com/store/sensors-sonars-cameras/sensors/bar02-sensor-r1-rp/?fbclid=IwAR1OrarpIVQRmMD04arDhxaLX52zNftKDEgKdB-qMfzaiU9inliZ1wjkOcQ),
+  
+  * [datasheet of MS5837-02BA](https://www.te.com/commerce/DocumentDelivery/DDEController?Action=srchrtrv&DocNm=MS5837-02BA01&DocType=Data+Sheet&DocLang=English&DocFormat=pdf&PartCntxt=CAT-BLPS0059).
+  
+    
+  
+* screen **YM2004A** 20x4 LCD:
+  
+  * [PCF8574](https://www.nxp.com/docs/en/data-sheet/PCF8574_PCF8574A.pdf) - additional 8bit I/O expander for I2C-bus
+  * communication protocol: **I2C** (0x27),
+  * [datasheet of YM-2004A](https://www.evselectro.com/image/data/datasheet/YM2004A.pdf),
 
 
 
@@ -39,12 +59,13 @@ The project will focus on supporting the following things:
 
 The **Nucleo F103RB** evaluation board will be used as a test software and debugging tool.
 
-Ultimately the code will be ported to **"Bluepill "**.
+Ultimately the code will be ported to **"[Bluepill](https://os.mbed.com/users/hudakz/code/STM32F103C8T6_Hello/)"** ([STM32F103C8T6](https://www.st.com/resource/en/datasheet/stm32f103c8.pdf)).
 
 ## Software:
 
 * libraries: **HAL**
-* IDE: **Cube IDE**
+* IDE: **STM32 Cube IDE** v:1.6.1
+* **RealTerm** v:3.0.1
 ## Authors/developers:
 
 - [@PanPeople](https://github.com/PanPeople) (Mikołaj Czerniak)
@@ -52,17 +73,25 @@ Ultimately the code will be ported to **"Bluepill "**.
 
 
 
-## Aktualne funkcje:
+## Current functions:
 
 - LCD library:
-  - buffer refresh
-  - drawing a pixel
-  - caption generation
-  - loading tables with full buffer
-  - drawing of bitmaps
+  - buffer refresh,
+  
+  - drawing a pixel,
+  
+  - caption generation,
+  
+  - loading tables with full buffer,
+  
+  - drawing of bitmaps.
+  
 - BAR02 library:
 
-  - blank text
+  - quick model type set,
+  - reading the value of pressure and temperature,
+  - calculating depth and relative altitude from given data,
+  - cyclic redundancy check (CRC).
 ## Problems and workarounds:
 - flashing of fake **Bluepill**:
 
@@ -74,11 +103,17 @@ Ultimately the code will be ported to **"Bluepill "**.
   >
   > <img src="assets/image-20210610010740086.png" alt="image-20210610010740086" style="zoom:50%;" /> 
   
-- problems with LCD
+- problems with 20x4 LCD
 
-  > blank text
+  ![IMG_20210615_185502](assets/IMG_20210615_185502-1623830915120.jpg)
+  
+  > Purchased LCD display module turned out to be defective. Backlight LED had a changed anode with cathode so a minor soldering was required for the correct operation of the module.
 ## Future ideas:
 
+- Better integration with the other sensors used in the AUV.
+  
+- Greater integration with Timers.
+  
 - Reading converted bitmaps from SD (with another SPI interface) card to open movie.
   
   > ![yo235](assets/yo235.bmp)  
@@ -287,6 +322,8 @@ All required library files are in ` lcd_5110_library `folder.
 | :-------- | :------- | :------------------------- |
 | `bar_Dako99` | `Dako99` | Base code for communication with Bar02 sensor |
 
+`MS5837.h` is a header file which consist few essential defines:
+
 
 > Simple description of function
 >
@@ -295,39 +332,137 @@ All required library files are in ` lcd_5110_library `folder.
 > > `uint8_t i` - some variable
 >
 > ```C
-> void some_function(uint8_t i);
+> uint8_t MS5837_init(I2C_HandleTypeDef *hi2c);
+> ```
+> > ____
+
+
+> Change between BAR02 and BAR30
+>
+> parameters:
+>
+> > `uint8_t model` - sensor model
+>
+> ```C
+> 	void MS5837_setModel(uint8_t model);
+> ```
+> > ____
+
+> Set constant value of density
+>
+> parameters:
+>
+> > `float density` - value of fluid density
+>
+> ```C
+> 	void MS5837_setFluidDensity(float density);
+> ```
+> > ____
+
+> Read data
+>
+> parameters:
+>
+> > none
+>
+> ```C
+> 	void MS5837_read();
+> ```
+> > ____
+
+> Read measured pressure
+>
+> parameters:
+>
+> > `float conversion` - pressure unit conversion
+>
+> ```C
+> 	float MS5837_pressure(float conversion);
+> ```
+> > ____
+
+> Read measured temperature
+>
+> parameters:
+>
+> > `uint8_t i` - some variable
+>
+> ```C
+> 	float MS5837_temperature();
+> ```
+> > ____
+
+> Read measured depth
+>
+> parameters:
+>
+> > `uint8_t i` - some variable
+>
+> ```C
+> 	float MS5837_depth();
+> ```
+> > ____
+
+`lcd_i2c.h` is a header file which consist few essential defines:
+
+> Write to LCD function
+>
+> parameters:
+>
+> > `uint8_t addr` - address
+> >
+> > `uint8_t data` - 4 element array 
+> >
+> > `uint8_t xpin` - some variable
+>
+> ```C
+> void lcd_write(uint8_t addr, uint8_t data, uint8_t xpin)
+> ```
+>
+> > ____
+
+> LCD display initialisation with structure
+>
+> parameters:
+>
+> > `struct lcd_disp * lcd` - some variable
+>
+> ```C
+> void lcd_display(struct lcd_disp * lcd)
 > ```
 > > ____
 
 
 
 
-
 ## Used pins:
 
-<img src="assets/image-20210615182721677.png" alt="image-20210615182721677" style="zoom:80%;" />   
+<img src="assets/image-20210616101152126.png" alt="image-20210616101152126" style="zoom:67%;" /> 
 
 <img src="assets/stm32f103c8t6_pinout_voltage01.png" alt="img" style="zoom: 50%;" /> 
 
 ### Table of functions with descriptions of particular pins:
 
-|  Function:  | GPIO pin: |          Additional info:           |
-| :---------: | :-------: | :---------------------------------: |
-|     CS      |  PA6 A0   |           CS line for SPI           |
-|     RST     |  PB0 A1   |         RST line for screen         |
-|     DC      |  PB1 A4   |         DC line for screen          |
-|  SPI1 MOSI  |    PB5    |                  -                  |
-|  SPI1 MISO  |    PB4    |                  -                  |
-| GPIO_Output |   PC13    | led for debugging/status indicating |
-|  I2C2 SCL   |   PB_6    |                                     |
-|  I2C2 SDA   |   PB_7    |                                     |
-|  UART1_TX   |   PA_9    |                  -                  |
-|  UART1_RX   |   PA_10   |                  -                  |
-|             |           |                                     |
+|   Function:   | GPIO pin: |             Additional info:              |
+| :-----------: | :-------: | :---------------------------------------: |
+|      CS       |    PA6    |              CS line for SPI              |
+|      RST      |    PB0    |            RST line for screen            |
+|      DC       |    PB1    |            DC line for screen             |
+|   SPI1_SCK    |    PA5    |                     -                     |
+|   SPI1 MOSI   |    PA7    |                     -                     |
+|  GPIO_Output  |   PC13    | green LED for debugging/status indicating |
+|   I2C1 SCL    |   PB_6    |         common Serial Clock Line          |
+|   I2C1 SDA    |   PB_7    |          common Serial Data Line          |
+|   UART1_TX    |   PA_9    |  for additional data transmission to PC   |
+|   UART1_RX    |   PA_10   |  for additional data receivation form PC  |
+| RCC_OSC32_IN  |   PC14    |              X1 8MHz crystal              |
+| RCC_OSC32_OUT |   PC15    |                for PLLCLK                 |
+|  RCC_OSC_IN   |    PD0    |           X2 32.768kHz crystal            |
+| RCC_OSC32_OUT |    PD1    |                  for RTC                  |
 
 ## Installation:
 
-In the repository there are two folders called `F103C8TX` and `F103RB`, just download one of the folder and lunch the project from **CubeIDIE**, not tested with **Keil ** Virtual uC.
+In the repository there are two folders called `F103C8TX` and `F103RB`, just download one of the folder and lunch the project from **CubeIDE**, not tested with **Keil ** Virtual uC.
 
 For more info search: *opening project in Cube IDE* 
 
@@ -354,7 +489,13 @@ For more info, just ask a question via email or Github.
 
 ### `bar_Dako99`
 
-1. blank text
+1. declare address `disp.addr = (0x27 << 1);`
+2. set back-light `disp.bl = true;`
+3. print everything you want
+   1.  In first line: `sprintf((char*)disp.f_line, "First line of text");`
+   2. In second line:` sprintf((char*)disp.s_line, "Second line of text");`
+   3. In third  line: `sprintf((char*)disp.t_line, "Third line of text");`
+   4. In last line: ` sprintf((char*)disp.l_line, "Last line of text");`
 
 
 
@@ -373,7 +514,11 @@ what was used:
 
 ###  `bar_Dako99`
 
-blank text
+<img src="assets/image-20210616100644267.png" alt="image-20210616100644267" style="zoom: 67%;" /> 
+
+The program also could print parameters to PC via UART
+
+
 
 ## Licence
 
