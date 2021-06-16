@@ -1,0 +1,5 @@
+lcd_i2c.c:17:6:lcd_init	24	static
+lcd_i2c.c:47:6:lcd_write	32	static
+lcd_i2c.c:63:6:lcd_display	24	static
+lcd_i2c.c:130:6:lcd_clear	24	static
+lcd_i2c.c:147:6:lcd_prog	24	static

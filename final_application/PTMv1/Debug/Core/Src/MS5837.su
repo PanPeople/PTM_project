@@ -1,0 +1,10 @@
+MS5837.c:43:9:MS5837_init	32	static
+MS5837.c:86:6:MS5837_setModel	16	static
+MS5837.c:90:6:MS5837_setFluidDensity	16	static
+MS5837.c:94:6:MS5837_read	24	static
+MS5837.c:152:6:MS5837_calculate	184	static
+MS5837.c:216:7:MS5837_pressure	16	static
+MS5837.c:225:7:MS5837_temperature	8	static
+MS5837.c:229:7:MS5837_depth	16	static
+MS5837.c:233:7:MS5837_altitude	8	static
+MS5837.c:238:9:MS5837_crc4	24	static
